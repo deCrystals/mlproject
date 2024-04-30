@@ -8,8 +8,8 @@ from pathlib import Path
 %matplotlib inline
 warnings.filterwarnings("ignore")
 %cd "C:\Users\user\Desktop\portfolio"
-train = pd.read_csv("./train_ctrUa4K.csv")
-test=pd.read_csv("./test_lAUu6dG.csv")
+train = pd.read_csv("./train.csv")
+test=pd.read_csv("./test.csv")
 train_original = train.copy()
 test_original = test.copy()
 train.info()
@@ -130,7 +130,7 @@ train['LoanAmount'].value_counts()
 train['LoanAmount'].fillna(train['LoanAmount'].median(), inplace=True)
 train.isnull().sum()
 test.isnull().sum()
-#fillinh null in test data
+#filling null in test data
 test['Gender'].fillna(train['Gender'].mode()[0], inplace=True)
 test['Dependents'].fillna(train['Dependents'].mode()[0], inplace=True)
 test['Self_Employed'].fillna(train['Self_Employed'].mode()[0], inplace=True)
@@ -157,8 +157,6 @@ y = train.Loan_Status
 y
 X.info()
 X= pd.get_dummies(X)
-#train = pd.get_dummies(train)
-#test = pd.get_dummies(test)
 X.info()
 X = X.drop('Self_Employed_Male', axis = 1)
 X
